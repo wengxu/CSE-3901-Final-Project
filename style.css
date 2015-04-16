@@ -1,6 +1,6 @@
 @charset "utf-8";
 body {
-	background-image: url('lpbg.jpg');
+	background-image: url('img/lpbg.jpg');
 	background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -10,7 +10,7 @@ body {
 	min-width: 640px;
 	min-height: 600px;
 	position: relative;
-	text-align: center;
+	text-align: left;
 }
 #navbar{
 	background-color: #1F426A;
@@ -67,3 +67,66 @@ body {
   background-image: -o-linear-gradient(top, #3C729E, #1F426A);
   background-image: linear-gradient(to bottom, #3C729E, #1F426A);
   text-decoration: none;
+}
+#profile{
+	height: 400px;
+	width: 94%;
+	margin: 10px 3%;
+	padding: 0;
+}
+#pic{
+	background-color: #192531;
+	display: inline-block;
+	margin: 5px;
+	height: 140px;
+	width: 140px;
+	padding: 0;
+}
+#pic img{
+	height: 128px;
+	width: 128px;
+	margin: 6px;
+}
+#qinfo {
+	position: relative;
+    top: -40px;
+	display: inline-block;
+	margin: 10px;
+	height: 120px;
+	min-width: 380px;
+}
+#qinfo h2, h3, h4{
+	color: white;
+	margin: 10px;
+	padding: 0;
+}
+#rank {
+	background-color: #1F426A;
+	position: relative;
+	top: -30px;
+	height: 200px;
+	width: 100%;
+	margin: 5px;
+	border: solid #192531 3px;
+	text-align: center;
+}
+#rank img{
+	float: left; 
+	display: inline-block;
+	height:185px;
+	width: 185px;
+	margin: 5px; 
+}
+#rank table{
+	display: inline-block;
+	border: 1px solid black;
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+#rank th, td{
+	border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 1.2vw;
+    min-width: 50px;
+    height: 40px;
+}
