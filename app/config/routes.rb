@@ -6,13 +6,17 @@ Rails.application.routes.draw do
 
   resources :groups
 
-  get 'group/show'
+  get 'group/index'
+
+  get 'group/create'
 
   get 'group/new'
 
   get 'group/edit'
 
-  get 'group/delete'
+  get 'group/update'
+
+  get 'group/destroy'
 
 
   resources :students
