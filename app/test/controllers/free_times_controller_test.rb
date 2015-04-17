@@ -3,6 +3,12 @@ require 'test_helper'
 class FreeTimesControllerTest < ActionController::TestCase
   setup do
     @free_time = free_times(:one)
+    @update = {
+	student: 'Nebras Alnemer',
+	day: 'Monday',
+	timeSlot: 'Afternoon'
+    }
+  puts "free time at setup #{FreeTime.count}"
   end
 
   test "should get index" do
@@ -16,13 +22,16 @@ class FreeTimesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+
   test "should create free_time" do
     assert_difference('FreeTime.count') do
-      post :create, free_time: { day: @free_time.day, student_id: @free_time.student_id, timeSlot: @free_time.timeSlot }
+      post :create, free_time: @update
+      puts "freetime is #{FreeTime.count}"
     end
 
     assert_redirected_to free_time_path(assigns(:free_time))
   end
+
 
   test "should show free_time" do
     get :show, id: @free_time
@@ -35,7 +44,7 @@ class FreeTimesControllerTest < ActionController::TestCase
   end
 
   test "should update free_time" do
-    patch :update, id: @free_time, free_time: { day: @free_time.day, student_id: @free_time.student_id, timeSlot: @free_time.timeSlot }
+    patch :update, id: @free_time, free_time: @update
     assert_redirected_to free_time_path(assigns(:free_time))
   end
 
