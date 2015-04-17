@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @free_time.student %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @free_time.day %>
+</p>
+
+<p>
+  <strong>Timeslot:</strong>
+  <%= @free_time.timeSlot %>
+</p>
+
+<%= link_to 'Edit', edit_free_time_path(@free_time) %> |
+<%= link_to 'Back', free_times_path %>

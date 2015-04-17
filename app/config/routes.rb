@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :free_times
+
   resources :students
 
   get 'student/index'
