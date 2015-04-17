@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'group/show'
+
+  get 'group/new'
+
+  get 'group/edit'
+
+  get 'group/delete'
+
   resources :students
 
   get 'student/index'
