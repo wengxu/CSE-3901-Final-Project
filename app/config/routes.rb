@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+
   resources :free_times
+
+  get 'group/show'
+
+  get 'group/new'
+
+  get 'group/edit'
+
+  get 'group/delete'
+
 
   resources :students
 
