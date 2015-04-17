@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :groups
+  resources :free_times
 
   get 'group/show'
 
