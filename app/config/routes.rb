@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :free_times
+
   root      'application#hello'
 
   resources :users
