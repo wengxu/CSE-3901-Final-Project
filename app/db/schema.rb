@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417021002) do
+ActiveRecord::Schema.define(version: 20150417033627) do
 
   create_table "free_times", force: true do |t|
     t.integer  "student_id"
@@ -23,22 +23,18 @@ ActiveRecord::Schema.define(version: 20150417021002) do
 
   add_index "free_times", ["student_id"], name: "index_free_times_on_student_id"
 
-  create_table "group", force: true do |t|
-    t.string   "name"
-    t.string   "members"
+  create_table "groups", id: false, force: true do |t|
+    t.integer  "id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "groups", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text     "name"
   end
 
   create_table "students", force: true do |t|
     t.string   "name"
     t.string   "major"
     t.string   "rank"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -48,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150417021002) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

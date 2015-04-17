@@ -6,6 +6,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
 </head>
 <body>
+<!-- This navbar will be it's own partial -->
 	<div id="navbar">
 		<div id="buttons">
 			<button class="btn">LOGIN</button>
@@ -15,6 +16,7 @@
 			<h1>OSU SUMMONER SEARCH</h1>
 		</div>
 	</div>
+	<!-- This profile pic will be scraped from the match history website -->
 	<div id ="profile">
 		<div id="pic">
 			<img src="img/pro.png" alt="Profile Picture">
@@ -22,11 +24,14 @@
 		<div id="qinfo">
 			<h2>MMMMMMMMMMMMMMMM</h2>
 			<h3>Computer Science &amp; Engineering</h3>
-			<h4>Last 10 W/L: 5/5</h4> <!--Calculate the winloss -->
+			<h4>Columbus Campus</h4> <!--Calculate the winloss -->
 		</div>
 		<div id="info1">
+			<!-- This profile pic will be scraped from the match history website -->
 			<img src="img/plat.png" alt="Platinum">
 			<h3>Typical Availability</h3>
+			<!-- This table information will be taken from the database -->
+			<!-- Times when players are available will be indicated by inline styling the background color of the th tag to green-->
 			<table>
 				<tr>
 					<th><p>Sunday</p></th>
@@ -65,6 +70,67 @@
 					<td><p>Evening</p></td>
 				</tr>
 			</table>
+		</div>
+		<div id="mh">
+			<h2>Match History</h2>
+
+			<div class="match">
+				<div>
+					<img src="img/Nidalee.png" alt="Match 1 Champion">
+				</div>
+				<div>
+					<ul>
+						<li>KDA: X/Y/Z</li>
+						<li>Gold: X</li>
+						<li>Match Length: X min Y s</li>
+						<li><a href="" target="_blank">Full Match History</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="match">
+				<div>
+					<img src="img/Nidalee.png" alt="Match 2 Champion">
+				</div>
+				<div>
+					<ul>
+						<li>KDA: X/Y/Z</li>
+						<li>Gold: X</li>
+						<li>Match Length: X min Y s</li>
+						<li><a href="" target="_blank">Full Match History</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="match">
+				<div>
+					<img src="img/Nidalee.png" alt="Match 3 Champion">
+				</div>
+				<div>
+					<ul>
+						<li>KDA: X/Y/Z</li>
+						<li>Gold: X</li>
+						<li>Match Length: X min Y s</li>
+						<li><a href="" target="_blank">Full Match History</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="match">
+				<div>
+					<img src="img/Nidalee.png" alt="Match 4 Champion">
+				</div>
+				<div>
+					<ul>
+						<li>KDA: X/Y/Z</li>
+						<li>Gold: X</li>
+						<li>Match Length: X min Y s</li>
+						<li><a href="" target="_blank">Full Match History</a></li>
+					</ul>
+				</div>
+			</div>
+
+
 		</div>
 	</div>
 </body>

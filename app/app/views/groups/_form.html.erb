@@ -1,0 +1,14 @@
+<%= simple_form_for(@group) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div class = "field">
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+
+<% end %>
