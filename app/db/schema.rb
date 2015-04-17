@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150417033627) do
     t.string   "name"
     t.string   "major"
     t.string   "rank"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
