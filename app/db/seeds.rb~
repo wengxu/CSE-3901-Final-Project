@@ -23,14 +23,8 @@ ActiveRecord::Schema.define(version: 20150417021002) do
 
   add_index "free_times", ["student_id"], name: "index_free_times_on_student_id"
 
-  create_table "group", force: true do |t|
-    t.string   "name"
-    t.string   "members"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "groups", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
