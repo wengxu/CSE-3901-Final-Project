@@ -1,11 +1,28 @@
-<div id="landing">
+<!-- <div id="landing">
 		<form>
+
+
 			<div id="search">
-				<input type="text" name="st"><input type="submit" value="Search">
+
 			</div>
-			<div id="radio">
-				<input type="radio" name="stype" value="player" checked>Players
-				<input type="radio" name="stype" value="group">Groups
-			</div>
+
+
+
+
 		</form>
+	</div> -->
+
+	<!-- When submit the form, the view rendered will be the index view of our articles resource -->
+<%= form_tag(students_path, :method => "get", id: "landing") do %>
+  <div class="search">
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <!-- In order to have the "search" icon int the button, we need to use plain HTML instead
+         of using a Rails form helper -->
+    <button class="btn" type="submit"><i class="icon-search"></i></button>
+  </div>
+
+	<div id="radio">
+		<input type="radio" name="stype" value="player" checked>Players
+		<input type="radio" name="stype" value="group">Groups
 	</div>
+<% end %>

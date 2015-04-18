@@ -47,7 +47,7 @@ body {
 	color: white;
 }
 #search{
-	color: white;
+	color: black;
 }
 #search input{
 	margin: 5px;
@@ -116,11 +116,11 @@ body {
 	text-align: center;
 }
 #info1 img{
-	float: left; 
+	float: left;
 	display: inline-block;
 	height:185px;
 	width: 185px;
-	margin: 25px 5px; 
+	margin: 25px 5px;
 }
 #info1 h3{
 	margin: 10px auto;
