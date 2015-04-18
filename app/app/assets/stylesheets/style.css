@@ -17,6 +17,10 @@ body {
 	height: 80px;
 	border-bottom: thick solid #192531
 }
+#navbar a:link, a:visited, a:active{
+	color: white;
+	text-decoration: none;
+}
 #heading{
 	float: left;
 	height: 70px;
