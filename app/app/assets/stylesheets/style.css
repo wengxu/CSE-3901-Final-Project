@@ -14,7 +14,7 @@ body {
 }
 #navbar{
 	background-color: #1F426A;
-	height: 80px;
+	height: 70px;
 	border-bottom: thick solid #192531
 }
 #navbar a:link, a:visited, a:active{
@@ -23,7 +23,7 @@ body {
 }
 #heading{
 	float: left;
-	height: 70px;
+	height: 60px;
 	margin: 5px 5px 5px 10px;
 }
 #heading h1{
@@ -33,15 +33,16 @@ body {
 #buttons{
 	float: right;
 	height: 70px;
-	line-height: 70px;
+	line-height: 50px;
 	margin: 15px 10px;
 }
 #landing{
 	background-color: #1F426A;
 	text-align: center;
 	margin: 150px auto;
+	padding: 10px 0px 0px;
 	width: 350px;
-	height: 70px;
+	height: 65px;
 	border: thick solid #192531;
 	border-radius: 25px;
 }
