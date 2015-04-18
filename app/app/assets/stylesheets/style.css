@@ -32,6 +32,8 @@ body {
 }
 #buttons{
 	float: right;
+	height: 70px;
+	line-height: 70px;
 	margin: 15px 10px;
 }
 #landing{
