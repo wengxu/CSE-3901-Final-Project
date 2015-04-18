@@ -12,20 +12,14 @@ body {
 	position: relative;
 	text-align: left;
 }
-input, textarea, select, .uneditable-input {
-	border: 1px solid #bbb;
-	width: 100%;
-	margin-bottom: 15px;
-	@include box_sizing;
-}
-
-input {
-	height: auto !important;
-}
 #navbar{
 	background-color: #1F426A;
 	height: 80px;
 	border-bottom: thick solid #192531
+}
+#navbar a:link, a:visited, a:active{
+	color: white;
+	text-decoration: none;
 }
 #heading{
 	float: left;
