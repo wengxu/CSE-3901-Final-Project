@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<% provide(:title, @user.name) %>
+<div id ="profile">
+	<div id = "pic">
+		<%= image_tag("pro.png")%>
+	</div>
+	<div id = "qinfo">
+		<h2><%= @user.name %> </h2>
+		<h4>Columbus Campus </h4>
+	</div>
+	<div id = "info1">
+		<img src="img/plat.png" alt="Platinum">
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+	</div>
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+	<%= link_to 'Back', users_path %>
+</div>
