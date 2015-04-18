@@ -1,23 +1,70 @@
-<h1>Sign up</h1>
+
 
 <div id="pcreate">
-	<div class="row">
-	  <div class="col-md-6 col-md-offset-3">
+	<h2>Sign up</h2>
 	    <%= form_for(@user) do |f| %>
-	      <%= f.label :name %>
-	      <%= f.text_field :name %>
+	    	<%= render 'shared/errors' %>
+	    	<p><%= f.label :name %></p>
+	      	<%= f.text_field :name, class: 'form-control' %>
 
-	      <%= f.label :email %>
-	      <%= f.email_field :email %>
+	      	<p><%= f.label :email %></p>
+	      	<%= f.email_field :email, class: 'form-control' %>
 
-	      <%= f.label :password %>
-	      <%= f.password_field :password %>
+	      	<p><%= f.label :password %></p>
+	      	<%= f.password_field :password, class: 'form-control' %>
 
-	      <%= f.label :password_confirmation, "Confirmation" %>
-	      <%= f.password_field :password_confirmation %>
-
-	      <%= f.submit "Create my account", class: "btn btn-primary" %>
+	      	<p><%= f.label :password_confirmation, "Confirmation" %></p>
+	      	<%= f.password_field :password_confirmation, class: 'form-control' %>
+	      	<table>
+				<tr>
+					<th></th>
+					<th>8AM-12PM</th>
+					<th>12-6PM</th>
+					<th>6PM+</th>
+				</tr>
+				<tr>
+					<th>Sunday</th>
+					<td><input type="checkbox" name="sunday" value="morning"></td>
+					<td><input type="checkbox" name="sunday" value="afternoon"></td>
+					<td><input type="checkbox" name="sunday" value="evening"></td>
+				</tr>
+				<tr>
+					<th>Monday</th>
+					<td><input type="checkbox" name="monday" value="morning"></td>
+					<td><input type="checkbox" name="monday" value="afternoon"></td>
+					<td><input type="checkbox" name="monday" value="evening"></td>
+				</tr>
+				<tr>
+					<th>Tuesday</th>
+					<td><input type="checkbox" name="tuesday" value="morning"></td>
+					<td><input type="checkbox" name="tuesday" value="afternoon"></td>
+					<td><input type="checkbox" name="tuesday" value="evening"></td>
+				</tr>
+				<tr>
+					<th>Wednesday</th>
+					<td><input type="checkbox" name="wednesday" value="morning"></td>
+					<td><input type="checkbox" name="wednesday" value="afternoon"></td>
+					<td><input type="checkbox" name="wednesday" value="evening"></td>
+				</tr>
+				<tr>
+					<th>Thursday</th>
+					<td><input type="checkbox" name="thursday" value="morning"></td>
+					<td><input type="checkbox" name="thursday" value="afternoon"></td>
+					<td><input type="checkbox" name="thursday" value="evening"></td>
+				</tr>
+				<tr>	
+					<th>Friday</th>
+					<td><input type="checkbox" name="friday" value="morning"></td>
+					<td><input type="checkbox" name="friday" value="afternoon"></td>
+					<td><input type="checkbox" name="friday" value="evening"></td>
+				</tr>
+				<tr>
+					<th>Saturday</th>
+					<td><input type="checkbox" name="saturday" value="morning"></td>
+					<td><input type="checkbox" name="saturday" value="afternoon"></td>
+					<td><input type="checkbox" name="saturday" value="evening"></td>
+				</tr>
+			</table>
+	      	<p><%= f.submit "Create my account", class: "btn btn-primary" %></p>
 	    <% end %>
-	  </div>
-	</div>
 </div>
