@@ -5,6 +5,12 @@ Rails.application.routes.draw do
 
   get 'search/searchResult'
 
+  get 'login'     => 'sessions#new'
+
+  post 'login'    => 'sessions#create'
+
+  delete 'logout'  => 'sessions#destroy'
+
   resources :free_times
 
   
