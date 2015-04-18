@@ -2,10 +2,10 @@
 ## Ruby on Rails Project
 
 ## Roles
-* Overall Project Manager:
-* Coding Manager:
-* Testing Manager:
-* Documentation:
+* Overall Project Manager: Alex
+* Coding Manager: Karl
+* Testing Manager: Xu
+* Documentation: Nebras
 
 ## Contributions
 Please list who did what for each part of the project.
