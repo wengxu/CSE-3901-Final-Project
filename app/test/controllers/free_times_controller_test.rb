@@ -8,9 +8,6 @@ class FreeTimesControllerTest < ActionController::TestCase
 	day: 'Monday',
 	timeSlot: 'Afternoon'
     }
-  User.create(:name => 'Wha')
-  User.create(:name => 'Dha')
-  puts "free time at setup #{FreeTime.count}"
   end
 
   test "should get index" do
@@ -27,7 +24,7 @@ class FreeTimesControllerTest < ActionController::TestCase
 
   test "should create free_time" do
     assert_difference('FreeTime.count') do
-      post :create, free_time: {user_id: @free_time.user_id, day: @free_time.day, timeSlot: @free_time.timeSlot } 
+      post :create, @update 
       puts "freetime is #{FreeTime.count}"
     end
 

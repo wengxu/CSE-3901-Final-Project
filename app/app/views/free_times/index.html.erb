@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Student</th>
+      <th>User</th>
       <th>Day</th>
       <th>Timeslot</th>
       <th colspan="3"></th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @free_times.each do |free_time| %>
       <tr>
-        <td><%= free_time.student %></td>
+        <td><%= free_time.user_id %></td>
         <td><%= free_time.day %></td>
         <td><%= free_time.timeSlot %></td>
         <td><%= link_to 'Show', free_time %></td>

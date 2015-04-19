@@ -25,11 +25,9 @@ class FreeTimesController < ApplicationController
   # POST /free_times
   # POST /free_times.json
   def create
-	puts User.all.count
-	puts User.all[0].id
-	puts User.all[0].name
-    user = User.find(0)
-    @free_time = user.free_times.build(user: user)
+	#puts params.to_s
+    user = User.find(params[:user_id])
+    @free_time = user.free_times.build(user_id: params[:user_id], day: params[:day], timeSlot: params[:timeSlot])
 
     respond_to do |format|
       if @free_time.save
