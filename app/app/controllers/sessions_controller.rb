@@ -13,4 +13,8 @@ class SessionsController < ApplicationController
   		render 'new'
   	end
   end
+  def destroy
+  	log_out
+  	redirect_to search_path
+  end
 end

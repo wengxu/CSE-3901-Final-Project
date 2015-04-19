@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: "shared/unav" %>
-
+<% if logged_in? %>
+	
+	<%= render partial: "shared/rnav" %>
+<% else %>
+	<%= render partial: "shared/unav" %>
+<% end %>
 <%= yield %>
 
 </body>
