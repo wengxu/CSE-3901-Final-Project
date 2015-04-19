@@ -1,5 +1,9 @@
 <div id = "pcreate">
 	<h2>Log in</h2>
+	    <% flash.each do |message_type, message| %>
+        	<div class="alert alert-<%= message_type %>"><%= message %></div>
+      	<% end %>
+
 		<%= form_for(:session, url: login_path) do |f| %>
 			<p><%= f.label :email %></p>
     		<%= f.email_field :email, class: 'form-control' %>
