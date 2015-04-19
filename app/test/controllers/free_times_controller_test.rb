@@ -4,10 +4,12 @@ class FreeTimesControllerTest < ActionController::TestCase
   setup do
     @free_time = free_times(:one)
     @update = {
-	user_id: 'Xu Weng',
+	user_id: 1,
 	day: 'Monday',
 	timeSlot: 'Afternoon'
     }
+  User.create(:name => 'Wha')
+  User.create(:name => 'Dha')
   puts "free time at setup #{FreeTime.count}"
   end
 

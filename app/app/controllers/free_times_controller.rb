@@ -25,7 +25,10 @@ class FreeTimesController < ApplicationController
   # POST /free_times
   # POST /free_times.json
   def create
-    user = user.find(params[:user_id])
+	puts User.all.count
+	puts User.all[0].id
+	puts User.all[0].name
+    user = User.find(0)
     @free_time = user.free_times.build(user: user)
 
     respond_to do |format|
@@ -74,6 +77,6 @@ class FreeTimesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def free_time_params
-      params.require(:free_time).permit(:student_id, :day, :timeSlot)
+      params.require(:free_time).permit(:user_id, :day, :timeSlot)
     end
 end

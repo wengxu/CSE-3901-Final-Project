@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: Xu Weng
+  user_id: 0
   day: Wednesday
   timeSlot: Morning
 
 two: 
-  user_id: 
+  user_id: 1
   day: Wednesday
   timeSlot: Afternoon

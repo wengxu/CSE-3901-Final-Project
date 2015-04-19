@@ -1,3 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# empty
+one:
+  id: 0
+  name: Alice
+  major: CSE
+
+two:
+  id: 1
+  name: Ben
+  major: ECE

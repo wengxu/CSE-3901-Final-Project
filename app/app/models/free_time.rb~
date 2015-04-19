@@ -1,5 +1,5 @@
 class FreeTime < ActiveRecord::Base
-  belongs_to :student
+  belongs_to :user
   validates :student, :day, :timeSlot, presence: true
   validates :day, format: {
     with: /\A(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\Z/,
