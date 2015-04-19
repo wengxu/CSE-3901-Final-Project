@@ -10,7 +10,7 @@ agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
 
 #get search page
 searchPage = agent.get(url)
-#search for player with the keyword user Name
+#search for player with the user name keyword
 searchBox = searchPage.forms.first
 searchBox['name'] = userName
 resultPage = searchBox.submit
@@ -19,7 +19,7 @@ resultPage=resultPage.body
 
 result_doc = Nokogiri::HTML(resultPage)
 
-#lists of titles and descriptions
+# get the rank
 rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
 puts rank

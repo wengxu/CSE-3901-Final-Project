@@ -4,7 +4,7 @@ class FreeTimesControllerTest < ActionController::TestCase
   setup do
     @free_time = free_times(:one)
     @update = {
-	student: 'Nebras Alnemer',
+	student: 'Xu Weng',
 	day: 'Monday',
 	timeSlot: 'Afternoon'
     }
@@ -25,7 +25,7 @@ class FreeTimesControllerTest < ActionController::TestCase
 
   test "should create free_time" do
     assert_difference('FreeTime.count') do
-      post :create, free_time: @update
+      post :create, free_time: {student_id: @free_time.student_id, day: @free_time.day, timeSlot @free_time.timeSlot } 
       puts "freetime is #{FreeTime.count}"
     end
 

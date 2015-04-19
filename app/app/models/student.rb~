@@ -1,8 +1,9 @@
 class Student < ActiveRecord::Base
-	belongs_to :groups
+	belongs_to :groupj
+  has_many :free_times
   validates :name, :major, :rank, presence: true
   validates_uniqueness_of :name, 
-    {message: 'the student is already entered'}
+    {message: 'the student name is already entered'}
   validates :name, format: {
     with: /\A[a-zA-Z]/,
     message: 'must start with a character' 

@@ -1,4 +1,5 @@
 class FreeTimesController < ApplicationController
+  
   before_action :set_free_time, only: [:show, :edit, :update, :destroy]
 
   # GET /free_times
@@ -24,7 +25,8 @@ class FreeTimesController < ApplicationController
   # POST /free_times
   # POST /free_times.json
   def create
-    @free_time = FreeTime.new(free_time_params)
+    @free_time = Free_time.new(free_time_params)
+    
 
     respond_to do |format|
       if @free_time.save
@@ -35,6 +37,9 @@ class FreeTimesController < ApplicationController
         format.json { render json: @free_time.errors, status: :unprocessable_entity }
       end
     end
+  puts @free_time.errors[:student].to_s
+  puts @free_time.errors[:day].to_s
+  puts @free_time.errors[:timeSlot].to_s
   end
 
   # PATCH/PUT /free_times/1

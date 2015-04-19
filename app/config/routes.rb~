@@ -1,14 +1,30 @@
 Rails.application.routes.draw do
+  get 'search/index'
+
+  get 'search/search'
+
+  get 'search/searchResult'
 
   resources :free_times
 
-  get 'group/show'
+  root      'application#hello'
+
+  resources :users
+
+
+  resources :groups
+
+  get 'group/index'
+
+  get 'group/create'
 
   get 'group/new'
 
   get 'group/edit'
 
-  get 'group/delete'
+  get 'group/update'
+
+  get 'group/destroy'
 
 
   resources :students
@@ -31,7 +47,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'search#index', as: 'search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

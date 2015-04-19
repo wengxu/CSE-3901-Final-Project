@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419002753) do
+ActiveRecord::Schema.define(version: 20150419062953) do
 
   create_table "free_times", force: true do |t|
     t.integer  "student_id"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20150419002753) do
     t.string   "timeSlot"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id_id"
   end
 
   add_index "free_times", ["student_id"], name: "index_free_times_on_student_id"
+  add_index "free_times", ["user_id_id"], name: "index_free_times_on_user_id_id"
 
   create_table "groups", force: true do |t|
     t.datetime "created_at"
