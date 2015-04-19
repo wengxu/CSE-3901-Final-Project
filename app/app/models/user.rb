@@ -8,4 +8,10 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 6 }
 	validates :major, length: {minimum: 3}
+
+
+	def self.search(query)
+	# where(:title, query) -> This would return an exact match of the query
+	where("name like ?", "%#{query}%")
+end
 end
