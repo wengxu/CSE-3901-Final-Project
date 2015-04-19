@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :free_times
+
 	before_save {self.email = self.email.downcase}
 	EMAIL_EXPRESSION = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :name, presence: true, length:{maximum: 30}

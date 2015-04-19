@@ -25,8 +25,8 @@ class FreeTimesController < ApplicationController
   # POST /free_times
   # POST /free_times.json
   def create
-    @free_time = Free_time.new(free_time_params)
-    
+    user = user.find(params[:user_id])
+    @free_time = user.free_times.build(user: user)
 
     respond_to do |format|
       if @free_time.save
@@ -37,7 +37,7 @@ class FreeTimesController < ApplicationController
         format.json { render json: @free_time.errors, status: :unprocessable_entity }
       end
     end
-  puts @free_time.errors[:student].to_s
+  puts @free_time.errors[:user].to_s
   puts @free_time.errors[:day].to_s
   puts @free_time.errors[:timeSlot].to_s
   end
