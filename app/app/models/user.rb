@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, length: {maximum: 255}, format: {with: EMAIL_EXPRESSION}, uniqueness: { case_sensitive: false}
 	has_secure_password
 	validates :password, length: { minimum: 6 }
+	validates :major, length: {minimum: 3}
 end

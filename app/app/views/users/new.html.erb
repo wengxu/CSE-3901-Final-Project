@@ -1,10 +1,10 @@
 
 
 <div id="pcreate">
-	<h2>Sign up</h2>
+	<h2>Account Creation</h2>
 	    <%= form_for(@user) do |f| %>
 	    	<%= render 'shared/errors' %>
-	    	<p><%= f.label :name %></p>
+	    	<p><%= f.label :name, "Summoner Name" %></p>
 	      	<%= f.text_field :name, class: 'form-control' %>
 
 	      	<p><%= f.label :email %></p>
@@ -13,8 +13,17 @@
 	      	<p><%= f.label :password %></p>
 	      	<%= f.password_field :password, class: 'form-control' %>
 
-	      	<p><%= f.label :password_confirmation, "Confirmation" %></p>
+	      	<p><%= f.label :password_confirmation, "Confirm Password" %></p>
 	      	<%= f.password_field :password_confirmation, class: 'form-control' %>
+
+	      	<p><%= f.label :major, "OSU Major" %></p>
+	      	<%= f.text_field :major, class: 'form-control' %>
+
+	      	<p><%= f.label :campus, "OSU Campus" %></p>
+			<%= f.select :campus, options_for_select(['Columbus', 'Lima', 'Mansfield', 'Marion', 'Newark', 'Wooster'])  %>
+
+
+	      	<br>
 	      	<table>
 				<tr>
 					<th></th>

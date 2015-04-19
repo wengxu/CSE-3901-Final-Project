@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417033627) do
+ActiveRecord::Schema.define(version: 20150419002753) do
 
   create_table "free_times", force: true do |t|
     t.integer  "student_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150417033627) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "major"
+    t.string   "campus"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
