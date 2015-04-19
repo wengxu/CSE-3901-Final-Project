@@ -1,2 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div id = "pcreate">
+	<h2>Log in</h2>
+		<%= form_for(:session, url: login_path) do |f| %>
+			<p><%= f.label :email %></p>
+    		<%= f.email_field :email, class: 'form-control' %>
+
+	    	<p><%= f.label :password %></p>
+    		<%= f.password_field :password, class: 'form-control' %>
+
+    		<p><%= f.submit "Log in", class: "btnb" %></p>
+    	<% end %>
+    	<p>New user? <%= link_to "sign up now!", signup_path, class: "loglink" %></p>
+</div>

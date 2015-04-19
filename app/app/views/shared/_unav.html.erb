@@ -1,8 +1,8 @@
 	<%# Use this navbar if the user is not logged in %>
 	<div id="navbar">
 		<div id="buttons">
-			<%= link_to "LOG IN", '#', class: 'btn' %>
-			<%= link_to "REGISTER", new_user_path, class: "btn" %>
+			<%= link_to "LOG IN", login_path, class: 'btn' %>
+			<%= link_to "REGISTER", signup_path, class: "btn" %>
 		</div>
 		<div id = "heading">
 			<h1><%= link_to "OSU SUMMONER SEARCH", search_path %></h1>
