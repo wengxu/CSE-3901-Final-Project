@@ -1,21 +1,20 @@
-<%= simple_form_for(@group) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @group do |f| %>
+
 
   <div class="field">
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label :numberofplayers %>
+  <%= f.label :size %>
+  <%= f.text_field :size %>
 
-  </div>
-
-
-  <div class="form-inputs">
-  <% members = Array.new(numberofplayers) %>
+  <% members = Array.new(6) %>
   <% members.each do |player|%>
-    <%= f.association :student %>
+    <% f.fields_for @group.student do |f| %>
+    <%= f.text_field :studentname %>
+<% end %>
   </div>
   <% end %>
   <div class="form-actions">
     <%= f.button :submit %>
-
+  </div>
 <% end %>
