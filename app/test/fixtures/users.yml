@@ -3,9 +3,13 @@
 one:
   id: 0
   name: Alice
+  email: alice@abc.com
+  password_digest: 123456
   major: CSE
 
 two:
   id: 1
   name: Ben
+  email: ben@abc.com
+  password_digest: 123456
   major: ECE

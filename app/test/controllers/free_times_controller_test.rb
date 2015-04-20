@@ -24,8 +24,8 @@ class FreeTimesControllerTest < ActionController::TestCase
 
   test "should create free_time" do
     assert_difference('FreeTime.count') do
-      post :create, @update 
-      puts "freetime is #{FreeTime.count}"
+	
+      post :create, @free_time =  @update
     end
 
     assert_redirected_to free_time_path(assigns(:free_time))
