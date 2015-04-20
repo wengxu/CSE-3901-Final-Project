@@ -51,6 +51,46 @@ class UsersController < ApplicationController
 	@schedule[1][6] = 1 if t.day == 'Sunday' && t.timeSlot == 'Afternoon'
 	@schedule[2][6] = 1 if t.day == 'Sunday' && t.timeSlot == 'Evening'
     }
+
+    agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
+    searchPage = agent.get('http://www.lolking.net/')
+	#search for player with the user name keyword
+	searchBox = searchPage.forms.first
+	searchBox['name'] = @user.name
+	resultPage = searchBox.submit
+	resultBody = resultPage.body
+	result_doc = Nokogiri::HTML(resultBody)
+
+	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
+
+	if @rank.include? "Bronze"
+		@r_img = "bronze.png"
+	elsif @rank.include? "Silver"
+		@r_img = "silver.png"
+	elsif @rank.include? "Gold"
+		@r_img = "gold.png"
+	elsif @rank.include? "Plat"
+		@r_img = "plat.png"
+	elsif @rank.include? "Diamond"
+		@r_img = "diamond.png"
+	else
+		@r_img = "unknown.png"
+	end
+
+
+	@pic_url= result_doc.css("div#summoner-titlebar-icon")[0]['style']
+	@pic_url.slice!(0, 24)
+	@pic_url.slice!(-2,3)
+
+	@pic_url = 'http://' + @pic_url
+
+	@wins = result_doc.css("td.lifetime_stats_val")[0].text
+	@kills = result_doc.css("td.lifetime_stats_val")[1].text
+	@assists = result_doc.css("td.lifetime_stats_val")[2].text
+	@minions = result_doc.css("td.lifetime_stats_val")[3].text
+	@jungle = result_doc.css("td.lifetime_stats_val")[4].text
+	@turrets =result_doc.css("td.lifetime_stats_val")[5].text
+
   end
 
   # GET /users/new

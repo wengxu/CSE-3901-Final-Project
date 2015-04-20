@@ -1,54 +1,90 @@
 <p id="notice"><%= notice %></p>
 
-<% provide(:title, @user.name) %>
 <div id ="profile">
+
 	<div id = "pic">
-		<%= image_tag("pro.png")%>
+		<%= image_tag(@pic_url)%>
 	</div>
+
 	<div id = "qinfo">
 		<h2><%= @user.name %> </h2>
-		<h4>Columbus Campus </h4>
-	</div>
-	<div id = "info1">
-		<img src="img/plat.png" alt="Platinum">
-			    
-		  <table>
-  <thead>
-    <tr>
-      <th>Free Time</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
-      <th>Sunday</th>
-    </tr>
-  </thead>
-  <tbody>
+    <h3><%= @user.major %></h3>
+    <h4><%= @user.campus %> Campus </h4>
+  </div>
 
-    <tr> <td>Morning</td> 
-    <% 7.times do |i| %>
-	<td><%= @schedule[0][i]==1 ? 'Available' : '--' %></td>
-	
-    <% end %>
-    </tr>
-    <tr> <td>Afternoon</td> 
-    <% 7.times do |i|%>
-	<td><%= @schedule[1][i]==1 ? 'Available' : '--' %></td>
-	
-    <% end %>
-    </tr>
-    <tr> <td>Evening</td>
-    <% 7.times do |i|%>
-	<td><%= @schedule[2][i]==1 ? 'Available' : '--' %></td>
-	
-    <% end %>
-    </tr>
-  </tbody>
-</table>
+  <div id = "info1">
+  <div id="crest">
+    <h3><%= @rank %></h3>
+    <%= image_tag(@r_img)%>
+  </div>
 
-	</div>
-	<%= link_to 'Edit', edit_user_path(@user) %> |
-	<%= link_to 'Back', users_path %>
+  <div id="times">
+    <h3>Typical Availability</h3>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr> <th>Morning</th> 
+            <% 7.times do |i| %>
+            <td><%= @schedule[0][i]==1 ? 'Available' : '--' %></td>
+
+            <% end %>
+          </tr>
+          <tr> <th>Afternoon</th> 
+            <% 7.times do |i|%>
+            <td><%= @schedule[1][i]==1 ? 'Available' : '--' %></td>
+
+            <% end %>
+          </tr>
+          <tr> <th>Evening</th>
+            <% 7.times do |i|%>
+            <td><%= @schedule[2][i]==1 ? 'Available' : '--' %></td>
+
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="stats">
+      <h3>Lifetime Stats</h3>
+
+      <table>
+            <thead>
+            <tr>
+               <th>Wins</th>
+               <th>Kills</th>
+               <th>Assists</th>
+               <th>Minions Slain</th>
+               <th>Jungle Monsters Slain</th>
+               <th>Turrets Destroyed</th>
+            </tr>
+            </thead>
+            <tbody>
+              <td><%= @wins %></td>
+              <td><%= @kills %></td>
+              <td><%= @assists %></td>
+              <td><%= @minions %></td>
+              <td><%= @jungle %></td>
+              <td><%= @turrets %></td>
+            </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
 </div>

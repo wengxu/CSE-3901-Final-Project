@@ -139,12 +139,12 @@ body {
 	margin: 6px;
 }
 #qinfo {
+	border: 1px solid black;
 	position: relative;
     top: -40px;
 	display: inline-block;
 	margin: 10px;
 	height: 120px;
-	min-width: 380px;
 }
 #qinfo h2, #qinfo h3, #qinfo h4{
 	color: white;
@@ -155,42 +155,77 @@ body {
 	background-color: #1F426A;
 	position: relative;
 	top: -30px;
-	height: 235px;
+	min-height: 250px;
 	width: 100%;
 	margin: 5px;
 	border: solid #192531 3px;
 	text-align: center;
 }
-#info1 img{
-	float: left;
+
+#times{
 	display: inline-block;
+    margin: 5px auto;
+    border: 1px solid black;
+}
+#times h3{
+	margin: 10px;
+	color: white;
+}
+
+#times table{
+	background-color: white;
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#times th, #times td{
+	border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 0.68em;
+    height: 40px;
+    min-width: 62px;
+    max-width: 100px;
+}
+
+#crest {
+	height: 220px;
+	width: 190px;
+	float: left;
+	border: 1px solid black;
+	margin: 5px 5px 5px 10px;
+}
+
+#crest h3 {
+	margin: 5px;
+	color: white;
+}
+
+#crest img{
 	height:185px;
 	width: 185px;
-	margin: 25px 5px;
+	margin: auto;
 }
-#info1 h3{
-	margin: 10px auto;
-}
-#info1 h4{
+
+#stats{
 	display: block;
-	float: left;
-}
-#info1 table{
-	background-color: white;
-	display: inline-block;
-	border: 1px solid black;
-    border-collapse: collapse;
     margin: 5px auto;
+	text-align: center;
+		border: 1px solid black;
 }
-#info1 th, #info1 td{
+#stats table{
+	margin: 5px auto;
+	background-color: white;
 	border: 1px solid black;
     border-collapse: collapse;
-    font-size: 0.8em;
+}
+
+#stats th, #stats td{
+	border: 1px solid black;
+    border-collapse: collapse;
     height: 40px;
+    min-width: 80px;
 }
-#info1 p{
-	margin: 3px;
-}
+
 #pcreate{
 	color: black;
 	width: 70%;

@@ -3,13 +3,10 @@
 require "mechanize"
 
 def scrapeInfo (userName)
-  url = 'http://www.lolking.net/'
 #text file for output information
-
 agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
-
 #get search page
-searchPage = agent.get(url)
+searchPage = agent.get('http://www.lolking.net/')
 #search for player with the user name keyword
 searchBox = searchPage.forms.first
 searchBox['name'] = userName
