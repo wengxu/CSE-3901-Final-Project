@@ -6,7 +6,7 @@
 </p>
 
  <strong>Size:</strong>
-  <%= @group.size %>
+  <%= @group.user_id %>
 </p>
 
 

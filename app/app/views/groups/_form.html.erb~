@@ -5,13 +5,12 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :numberofplayers %>
-  <%= f.text_field :numberofplayers %>
+
   </div>
 
 
   <div class="form-inputs">
-
-  <% members = Array.new(:numberofplayers.to_i) %>
+  <% members = Array.new(numberofplayers) %>
   <% members.each do |player|%>
     <%= f.association :student %>
   </div>

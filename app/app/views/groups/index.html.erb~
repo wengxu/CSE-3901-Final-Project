@@ -13,7 +13,6 @@
       <tr>
 	   <td><%= group.name %></td>
 	   <td><%= group.student.name %> </td>
-	   <td><%= group.size %> </td>
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
