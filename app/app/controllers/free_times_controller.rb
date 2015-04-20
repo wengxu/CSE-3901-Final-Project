@@ -6,6 +6,7 @@ class FreeTimesController < ApplicationController
   # GET /free_times.json
   def index
     @free_times = FreeTime.all
+    @users = User.all
   end
 
   # GET /free_times/1
@@ -25,7 +26,7 @@ class FreeTimesController < ApplicationController
   # POST /free_times
   # POST /free_times.json
   def create
-	puts params.to_s
+	#puts params.to_s
     if params[:user_id] 
     user = User.find(params[:user_id])
     @free_time = user.free_times.build(user_id: params[:user_id], day: params[:day], timeSlot: params[:timeSlot])
