@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150419160516) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "name"
+    t.integer  "size"
   end
 
   create_table "students", force: true do |t|

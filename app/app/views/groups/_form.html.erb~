@@ -9,7 +9,7 @@
 
   <% members = Array.new(6) %>
   <% members.each do |player|%>
-    <% f.fields_for :name do |f| %>
+    <% f.fields_for @group.student do |f| %>
     <%= f.text_field :studentname %>
 <% end %>
   </div>
