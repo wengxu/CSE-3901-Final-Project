@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :memberships
+  resources:groups do
+	get 'join', :on => :member
+  end
+
   get 'sessions/new'
 
   get 'search/index'
@@ -22,19 +27,7 @@ Rails.application.routes.draw do
   resources :users
 
 
-  resources :groups
-
-  get 'group/index'
-
-  get 'group/create'
-
-  get 'group/new'
-
-  get 'group/edit'
-
-  get 'group/update'
-
-  get 'group/destroy'
+ 
 
 
   resources :students

@@ -1,30 +1,33 @@
 Rails.application.routes.draw do
+  resources :memberships
+  resources:groups do
+	resources: join
+  end
+
+  get 'sessions/new'
+
   get 'search/index'
 
   get 'search/search'
 
   get 'search/searchResult'
 
+  get 'signup'    => 'users#new'
+
+  get 'login'     => 'sessions#new'
+
+  post 'login'    => 'sessions#create'
+
+  delete 'logout'  => 'sessions#destroy'
+
   resources :free_times
 
-  root      'application#hello'
+  
 
   resources :users
 
 
-  resources :groups
-
-  get 'group/index'
-
-  get 'group/create'
-
-  get 'group/new'
-
-  get 'group/edit'
-
-  get 'group/update'
-
-  get 'group/destroy'
+ 
 
 
   resources :students

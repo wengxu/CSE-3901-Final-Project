@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+   <% if user.groups.include?(@group) %>
+       You're already a member of this group!
+   <% else %>
+      <%= form_for [@group, @membership] do |f| %>
+         <%= f.submit "Join" %>
+      <% end %>
+   <% end %>
+<% end %>
