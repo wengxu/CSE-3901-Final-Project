@@ -16,35 +16,16 @@ class UsersController < ApplicationController
     #to store the user free time info
     @schedule = Array.new(3) {Array.new(7, 0)}
     times = @user.free_times
+    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    timeFrames = ['Morning', 'Afternoon', 'Evening']
     times.each {|t|
-	#monday
-	@schedule[0][0] = 1 if t.day == 'Monday' && t.timeSlot == 'Morning'
-	@schedule[1][0] = 1 if t.day == 'Monday' && t.timeSlot == 'Afternoon'
-	@schedule[2][0] = 1 if t.day == 'Monday' && t.timeSlot == 'Evening'
-	#tuesday
-	@schedule[0][1] = 1 if t.day == 'Tuesday' && t.timeSlot == 'Morning'
-	@schedule[1][1] = 1 if t.day == 'Tuesday' && t.timeSlot == 'Afternoon'
-	@schedule[2][1] = 1 if t.day == 'Tuesday' && t.timeSlot == 'Evening'
-	#wednesday
-	@schedule[0][2] = 1 if t.day == 'Wednesday' && t.timeSlot == 'Morning'
-	@schedule[1][2] = 1 if t.day == 'Wednesday' && t.timeSlot == 'Afternoon'
-	@schedule[2][2] = 1 if t.day == 'Wednesday' && t.timeSlot == 'Evening'
-	#thursday
-	@schedule[0][3] = 1 if t.day == 'Thursday' && t.timeSlot == 'Morning'
-	@schedule[1][3] = 1 if t.day == 'Thursday' && t.timeSlot == 'Afternoon'
-	@schedule[2][3] = 1 if t.day == 'Thursday' && t.timeSlot == 'Evening'
-	# Friday
-	@schedule[0][4] = 1 if t.day == 'Friday' && t.timeSlot == 'Morning'
-	@schedule[1][4] = 1 if t.day == 'Friday' && t.timeSlot == 'Afternoon'
-	@schedule[2][4] = 1 if t.day == 'Friday' && t.timeSlot == 'Evening'
-	#Saturday
-	@schedule[0][5] = 1 if t.day == 'Saturday' && t.timeSlot == 'Morning'
-	@schedule[1][5] = 1 if t.day == 'Saturday' && t.timeSlot == 'Afternoon'
-	@schedule[2][5] = 1 if t.day == 'Saturday' && t.timeSlot == 'Evening'
-	# Sunday
-	@schedule[0][6] = 1 if t.day == 'Sunday' && t.timeSlot == 'Morning'
-	@schedule[1][6] = 1 if t.day == 'Sunday' && t.timeSlot == 'Afternoon'
-	@schedule[2][6] = 1 if t.day == 'Sunday' && t.timeSlot == 'Evening'
+
+      7.times {|day| 
+	3.times{|timeFrame| 
+		@schedule[timeFrame][day] = 1 if t.day == days[day] && t.timeSlot == timeFrames[timeFrame]	
+	}
+      } 
+
     }
 
     agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
@@ -58,6 +39,7 @@ class UsersController < ApplicationController
 
 	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
+	
 	if @rank.include? "Bronze"
 		@r_img = "bronze.png"
 	elsif @rank.include? "Silver"
@@ -72,7 +54,7 @@ class UsersController < ApplicationController
 		@r_img = "unknown.png"
 	end
 
-
+	if @rank.length > 0
 	@pic_url= result_doc.css("div#summoner-titlebar-icon")[0]['style']
 	@pic_url.slice!(0, 24)
 	@pic_url.slice!(-2,3)
@@ -85,6 +67,7 @@ class UsersController < ApplicationController
 	@minions = result_doc.css("td.lifetime_stats_val")[3].text
 	@jungle = result_doc.css("td.lifetime_stats_val")[4].text
 	@turrets =result_doc.css("td.lifetime_stats_val")[5].text
+	end
 
   end
 
