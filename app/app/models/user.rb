@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :memberships
+	has_many :free_times, dependent: :destroy
  	has_many :groups, :through => :memberships
 	before_save {self.email = self.email.downcase}
 	EMAIL_EXPRESSION = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
