@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :name
 	validates :email, presence: true, length: {maximum: 255}, format: {with: EMAIL_EXPRESSION }, uniqueness: { case_sensitive: false}
 	has_secure_password
-	validates :password, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 }, allow_blank: true
 	validates :major, length: {minimum: 3}
 	validate :name_should_exist
 
