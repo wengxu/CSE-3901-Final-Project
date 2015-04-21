@@ -136,6 +136,29 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
+        mon =  params.values_at 'monday1', 'monday2', 'monday3'
+  mon.each {|x| @user.free_times.build(user_id: @user.id, day: 'Monday', timeSlot: x) if x}
+
+    tue = params.values_at 'tuesday1', 'tuesday2', 'tuesday3'
+  tue.each {|x| @user.free_times.build(user_id: @user.id, day: 'Tuesday', timeSlot: x) if x}
+
+    wed = params.values_at 'wednesday1', 'wednesday2', 'wednesday3'
+  wed.each {|x| @user.free_times.build(user_id: @user.id, day: 'Wednesday', timeSlot: x) if x}
+
+    thu = params.values_at 'thursday1', 'thursday2', 'thursday3'
+  thu.each {|x| @user.free_times.build(user_id: @user.id, day: 'Thursday', timeSlot: x) if x}
+
+    fri = params.values_at 'friday1', 'friday2', 'friday3'
+  fri.each {|x| @user.free_times.build(user_id: @user.id, day: 'Friday', timeSlot: x) if x}
+
+    sat = params.values_at 'saturday1', 'saturday2', 'saturday3'
+  sat.each {|x| @user.free_times.build(user_id: @user.id, day: 'Saturday', timeSlot: x) if x}
+
+    sun = params.values_at 'sunday1', 'sunday2', 'sunday3'
+  sun.each {|x| @user.free_times.build(user_id: @user.id, day: 'Sunday', timeSlot: x) if x}
+
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
