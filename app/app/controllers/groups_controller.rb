@@ -4,14 +4,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    #if there is a search comming in
-
-    
-    if params[:search]
-        @group = Group.search(params[:search]).order("created_at DESC")
-      else
-         @group = Group.all
-    end
+    @groups = Group.all
 
   end
 

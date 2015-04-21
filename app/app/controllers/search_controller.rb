@@ -3,13 +3,27 @@ class SearchController < ApplicationController
 
     if params[:stype] == 'group'
 
+      #if there is a search comming in
+      if params[:search]
+          @groups = Group.search(params[:search]).order("created_at DESC")
+        else
+           @groups = Group.all
+      end
 
-          redirect_to groups_path
+        render "groups/index"
 
 
     elsif params[:stype] == 'player'
 
-            redirect_to users_path
+      # if there is a search comming in
+      if params[:search]
+          @users = User.search(params[:search]).order("created_at DESC")
+
+        else
+           @users = User.all
+      end
+
+            render "users/index"
 
 
     end
