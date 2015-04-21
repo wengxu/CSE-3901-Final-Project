@@ -18,7 +18,7 @@ class GroupsControllerTest < ActionController::TestCase
 
   test "should create group" do
     assert_difference('Group.count') do
-      post :create, group: {  }
+      post :create, group: { gname: @group.gname }
     end
 
     assert_redirected_to group_path(assigns(:group))
@@ -35,7 +35,7 @@ class GroupsControllerTest < ActionController::TestCase
   end
 
   test "should update group" do
-    patch :update, id: @group, group: {  }
+    patch :update, id: @group, group: { gname: @group.gname }
     assert_redirected_to group_path(assigns(:group))
   end
 
