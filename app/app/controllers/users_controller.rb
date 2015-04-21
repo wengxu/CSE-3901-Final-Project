@@ -56,18 +56,27 @@ class UsersController < ApplicationController
 	end
 
 	if @rank.length > 0
-	@pic_url= result_doc.css("div#summoner-titlebar-icon")[0]['style']
-	@pic_url.slice!(0, 24)
-	@pic_url.slice!(-2,3)
+		@pic_url= result_doc.css("div#summoner-titlebar-icon")[0]['style']
+		@pic_url.slice!(0, 24)
+		@pic_url.slice!(-2,3)
 
-	@pic_url = 'http://' + @pic_url
+		@pic_url = 'http://' + @pic_url
 
-	@wins = result_doc.css("td.lifetime_stats_val")[0].text
-	@kills = result_doc.css("td.lifetime_stats_val")[1].text
-	@assists = result_doc.css("td.lifetime_stats_val")[2].text
-	@minions = result_doc.css("td.lifetime_stats_val")[3].text
-	@jungle = result_doc.css("td.lifetime_stats_val")[4].text
-	@turrets =result_doc.css("td.lifetime_stats_val")[5].text
+		if result_doc.at_css("td.lifetime_stats_val")
+			@wins = result_doc.css("td.lifetime_stats_val")[0].text
+			@kills = result_doc.css("td.lifetime_stats_val")[1].text
+			@assists = result_doc.css("td.lifetime_stats_val")[2].text
+			@minions = result_doc.css("td.lifetime_stats_val")[3].text
+			@jungle = result_doc.css("td.lifetime_stats_val")[4].text
+			@turrets =result_doc.css("td.lifetime_stats_val")[5].text
+		else
+			@wins = "No data available"
+			@kills ="No data available"
+			@assists = "No data available"
+			@minions = "No data available"
+			@jungle = "No data available"
+			@turrets = "No data available"
+		end
 	end
 
   end
