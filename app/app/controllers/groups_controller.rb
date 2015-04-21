@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :join]
 
   # GET /groups
   # GET /groups.json
@@ -58,6 +58,20 @@ class GroupsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+def join
+    @group = Group.find(params[:id])
+    @m = @group.memberships.build(:user => current_user)
+    respond_to do |format|
+      if @m.save
+        format.html { redirect_to(@group, :notice => 'You have joined this group.') }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(@group, :notice => 'Join error.') }
+        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

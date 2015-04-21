@@ -5,14 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # if there is a search comming in 
-    if params[:search]
-        @users = User.search(params[:search]).order("created_at DESC")
-	
-	
-      else
-         @users = User.all
-    end
+    @users = User.all
   end
 
   # GET /users/1
@@ -22,7 +15,7 @@ class UsersController < ApplicationController
     #to store the user free time info
     @schedule = Array.new(3) {Array.new(7, 0)}
     times = @user.free_times
-    times.each {|t| 
+    times.each {|t|
 	#monday
 	@schedule[0][0] = 1 if t.day == 'Monday' && t.timeSlot == 'Morning'
 	@schedule[1][0] = 1 if t.day == 'Monday' && t.timeSlot == 'Afternoon'
@@ -39,7 +32,7 @@ class UsersController < ApplicationController
 	@schedule[0][3] = 1 if t.day == 'Thursday' && t.timeSlot == 'Morning'
 	@schedule[1][3] = 1 if t.day == 'Thursday' && t.timeSlot == 'Afternoon'
 	@schedule[2][3] = 1 if t.day == 'Thursday' && t.timeSlot == 'Evening'
-	# Friday 
+	# Friday
 	@schedule[0][4] = 1 if t.day == 'Friday' && t.timeSlot == 'Morning'
 	@schedule[1][4] = 1 if t.day == 'Friday' && t.timeSlot == 'Afternoon'
 	@schedule[2][4] = 1 if t.day == 'Friday' && t.timeSlot == 'Evening'
@@ -127,8 +120,8 @@ class UsersController < ApplicationController
 
     sun = params.values_at 'sunday1', 'sunday2', 'sunday3'
 	sun.each {|x| @user.free_times.build(user_id: @user.id, day: 'Sunday', timeSlot: x) if x}
-    
-    
+
+
 
     respond_to do |format|
       if @user.save
