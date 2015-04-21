@@ -7,19 +7,19 @@
 	</div>
 
 	<div id = "qinfo">
-		<h2><%= @user.name %> </h2>
+		<h2><%= @user.name %></h2>
     <h3><%= @user.major %></h3>
     <h4><%= @user.campus %> Campus </h4>
   </div>
 
   <div id = "info1">
-  <div id="crest">
-    <h3><%= @rank %></h3>
-    <%= image_tag(@r_img)%>
-  </div>
+    <div id="crest">
+      <h3><%= @rank %></h3>
+      <%= image_tag(@r_img)%>
+    </div>
 
-  <div id="times">
-    <h3>Typical Availability</h3>
+    <div id="times">
+      <h3>Typical Availability</h3>
       <table>
         <thead>
           <tr>
@@ -61,30 +61,31 @@
       <h3>Lifetime Stats</h3>
 
       <table>
-            <thead>
-            <tr>
-               <th>Wins</th>
-               <th>Kills</th>
-               <th>Assists</th>
-               <th>Minions Slain</th>
-               <th>Jungle Monsters Slain</th>
-               <th>Turrets Destroyed</th>
-            </tr>
-            </thead>
-            <tbody>
-              <td><%= @wins %></td>
-              <td><%= @kills %></td>
-              <td><%= @assists %></td>
-              <td><%= @minions %></td>
-              <td><%= @jungle %></td>
-              <td><%= @turrets %></td>
-            </tbody>
-      </table>
-    </div>
-
-
-
+        <thead>
+          <tr>
+           <th>Wins</th>
+           <th>Kills</th>
+           <th>Assists</th>
+           <th>Minions Slain</th>
+           <th>Jungle Monsters Slain</th>
+           <th>Turrets Destroyed</th>
+         </tr>
+       </thead>
+       <tbody>
+        <td><%= @wins %></td>
+        <td><%= @kills %></td>
+        <td><%= @assists %></td>
+        <td><%= @minions %></td>
+        <td><%= @jungle %></td>
+        <td><%= @turrets %></td>
+      </tbody>
+    </table>
   </div>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+  <h4>More for stats for <%= @user.name %> available at:</h4>
+  <%= link_to @lk, "#{@lk}" %>
+
+
+</div id="bnav">
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
 </div>
