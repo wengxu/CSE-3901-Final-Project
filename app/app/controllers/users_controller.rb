@@ -60,7 +60,8 @@ class UsersController < ApplicationController
 	resultPage = searchBox.submit
 	resultBody = resultPage.body
 	result_doc = Nokogiri::HTML(resultBody)
-
+	
+	@lk = resultPage.uri
 	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
 	if @rank.include? "Bronze"
