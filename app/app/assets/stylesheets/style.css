@@ -12,6 +12,9 @@ body {
 	position: relative;
 	text-align: left;
 }
+#notice{
+	color: white;
+}
 #navbar{
 	background-color: #1F426A;
 	height: 70px;
