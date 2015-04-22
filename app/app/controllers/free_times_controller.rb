@@ -27,6 +27,7 @@ class FreeTimesController < ApplicationController
   # POST /free_times.json
   def create
 	#puts params.to_s
+	# use if else so that it works for both the built in test and on the browser
     if params[:user_id] 
     user = User.find(params[:user_id])
     @free_time = user.free_times.build(user_id: params[:user_id], day: params[:day], timeSlot: params[:timeSlot])
