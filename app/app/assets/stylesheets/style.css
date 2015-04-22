@@ -59,18 +59,15 @@ a:hover{
 #landing{
 	background-color: #1F426A;
 	text-align: center;
-	margin: 150px auto;
+	margin: 250px auto;
 	padding: 10px 0px 0px;
 	width: 350px;
-	height: 65px;
+	height: 50px;
 	border: thick solid #192531;
 	border-radius: 25px;
 }
-#radio{
-	margin: 5px auto;
-	color: white;
-}
 #search{
+	margin: 5px;
 	color: black;
 }
 #search input{
