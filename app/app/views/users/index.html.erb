@@ -1,7 +1,9 @@
 <div id="ulist">
   <h1>Search Results</h1>
   <table>
+    <% if @users.count > 0 %>
     <thead>
+     
       <tr>
         <th>Summoner Name</th>
         <th>Major</th>
@@ -19,6 +21,10 @@
           <td><%= link_to 'View', user %></td>
         </tr>
       <% end %>
+
+     <% else %>
+          <thead> <tr><td>No Results Found!</td></tr></thead>
+     <% end %>
     </tbody>
   </table>
 

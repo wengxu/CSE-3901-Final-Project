@@ -3,12 +3,15 @@
 
 This web application is designed to allow OSU students to easily find other students who play the popular online game League of Legends.
 
-Features:
-* Searching: Search for other registered students by name, or search for pre-made groups to join.    
-* Personal Profile: With data scraped from 3rd-party sites, users can view your information such as in-game statistics,contact information, and play-time availability.
-* Groups: Registered students can join a pre-made group of other students.
+To access the landing page run the command "rails server" in the google_2-project_6/app/ directory.
+The site can be accessed by visiting http://localhost:3000
 
-testing is conducted by utilizing the built in rails resouces such as the auto generated message on websites and concole. In addition, test is performed by using the website interface. The built in test in Rails is utilized to some extent. 
+## Features
+* Searching: Search for other registered students by name    
+* Personal Profile: With data scraped from 3rd-party sites, users can view your information such as in-game statistics, contact information, and play-time availability.
+
+Testing:
+Testing is conducted by utilizing the built in rails resouces such as the auto generated message on websites and console. In addition, tests are performed by using the website interface. The built in test in Rails is utilized to some extent. 
 
 ## Roles
 * Overall Project Manager: Alex
@@ -26,5 +29,4 @@ Also list if people worked together (pair programmed) on a particular section.
 * Web scraping for User data: Alex, Xu
 * Free time tables MVC: Xu
 * Setting up the database: Jon, Nebras, Karl
-* User/Group relationships: Jon
 * Layouts and CSS: Alex
