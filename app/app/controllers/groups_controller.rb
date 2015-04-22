@@ -19,8 +19,21 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+	@group = Group.find(params[:id])
   end
+  def join
 
+    @group = Group.find(params[:id])
+    respond_to do |format|
+      if @u.save
+        format.html { redirect_to(@group, :notice => 'You have joined this group.') }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(@group, :notice => 'Join error.') }
+        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
   # POST /groups
   # POST /groups.json
   def create
@@ -61,20 +74,6 @@ class GroupsController < ApplicationController
     end
   end
 
-def join
-    @group = Group.find(params[:id])
-    @m = @group.memberships.build(:user => current_user)
-    respond_to do |format|
-      if @m.save
-        format.html { redirect_to(@group, :notice => 'You have joined this group.') }
-        format.xml  { head :ok }
-      else
-        format.html { redirect_to(@group, :notice => 'Join error.') }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
@@ -83,6 +82,6 @@ def join
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:gname)
+      params.require(:group).permit(:name)
     end
 end

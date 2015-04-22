@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :groups
+
   resources :memberships
   resources:groups do
 	get 'join', :on => :member

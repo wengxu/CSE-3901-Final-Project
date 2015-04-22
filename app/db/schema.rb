@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422001600) do
+ActiveRecord::Schema.define(version: 20150422030630) do
 
   create_table "free_times", force: true do |t|
     t.string   "day"
@@ -24,17 +24,10 @@ ActiveRecord::Schema.define(version: 20150422001600) do
   add_index "free_times", ["user_id"], name: "index_free_times_on_user_id"
 
   create_table "groups", force: true do |t|
-    t.string  "gname"
-    t.integer "id1"
-    t.integer "id2"
-    t.integer "id3"
-    t.integer "id4"
-    t.integer "id5"
-    t.integer "id6"
-    t.integer "id7"
-    t.integer "id8"
-    t.integer "id9"
-    t.integer "id10"
+    t.string   "name"
+    t.integer  "users_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "students", force: true do |t|

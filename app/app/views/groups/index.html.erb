@@ -12,7 +12,7 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.gname %></td>
+        <td><%= group.name %></td>
 	   <td><%= link_to 'Join', join_group_path(group) %></td>
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>

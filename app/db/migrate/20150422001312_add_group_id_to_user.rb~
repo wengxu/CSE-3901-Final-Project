@@ -1,5 +1,5 @@
 class AddGroupIdToUser < ActiveRecord::Migration
   def change
-    add_reference :users, :group
+    add_reference :users
   end
 end
