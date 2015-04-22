@@ -2,11 +2,17 @@ gem "mechanize"
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:search]
+        @users = User.search(params[:search]).order("created_at DESC")
+
+      else
+         @users = User.all
+    end
+
   end
 
   # GET /users/1
@@ -20,11 +26,11 @@ class UsersController < ApplicationController
     timeFrames = ['Morning', 'Afternoon', 'Evening']
     times.each {|t|
 
-      7.times {|day| 
-	3.times{|timeFrame| 
-		@schedule[timeFrame][day] = 1 if t.day == days[day] && t.timeSlot == timeFrames[timeFrame]	
+      7.times {|day|
+	3.times{|timeFrame|
+		@schedule[timeFrame][day] = 1 if t.day == days[day] && t.timeSlot == timeFrames[timeFrame]
 	}
-      } 
+      }
 
     }
 
@@ -36,11 +42,11 @@ class UsersController < ApplicationController
 	resultPage = searchBox.submit
 	resultBody = resultPage.body
 	result_doc = Nokogiri::HTML(resultBody)
-	
+
 	@lk = resultPage.uri
 	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
-	
+
 	if @rank.include? "Bronze"
 		@r_img = "bronze.png"
 	elsif @rank.include? "Silver"
