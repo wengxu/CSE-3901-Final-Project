@@ -3,7 +3,7 @@
 	<!-- When submitting the form, the view rendered will be the index view of our articles resource -->
 <%= form_tag(users_path, :method => "get") do %>
   <div class="search">
-    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search OSU Summoner" %>
     <!-- In order to have the "search" icon in the button, we need to use plain HTML instead
          of using a Rails form helper -->
     <button type="submit">Search</button>
