@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	validates :major, length: {minimum: 3}
 	validate :name_should_exist
 
-
+	# go online and check if the name exist in league of legend 
 	def name_should_exist
 	 agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
     searchPage = agent.get('http://www.lolking.net/')
