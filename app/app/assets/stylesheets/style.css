@@ -137,7 +137,7 @@ a:hover{
 .field_with_errors {
   @extend .has-error;
   .form-control {
-    
+
   }
 }
 #profile{
@@ -192,6 +192,11 @@ a:hover{
 	color: white;
 }
 
+
+
+#bnav a:link, #bnav a:visited, #bnav a:active{
+	color: white;
+}
 #times{
 	display: inline-block;
     margin: 5px auto;

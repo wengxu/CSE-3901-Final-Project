@@ -35,13 +35,13 @@
         </thead>
         <tbody>
 
-          <tr> <th>Morning</th> 
+          <tr> <th>Morning</th>
             <% 7.times do |i| %>
             <td><%= @schedule[0][i]==1 ? 'Available' : '--' %></td>
 
             <% end %>
           </tr>
-          <tr> <th>Afternoon</th> 
+          <tr> <th>Afternoon</th>
             <% 7.times do |i|%>
             <td><%= @schedule[1][i]==1 ? 'Available' : '--' %></td>
 
@@ -84,8 +84,8 @@
   <h4>Additional stats for <%= @user.name %> available at:</h4>
   <%= link_to @lk, "#{@lk}" %>
 
-
-</div id="bnav">
+</div>
+<div id="bnav">
 <% if logged_in? && @current_user.id == @user.id %>
   <%= link_to 'Edit My Profile', edit_user_path(current_user) %> |
 <%end %>
