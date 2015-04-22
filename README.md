@@ -7,11 +7,11 @@ To access the landing page run the command "rails server" in the google_2-projec
 The site can be accessed by visiting http://localhost:3000
 
 ## Features
-* Searching: Search for other registered students by name    
+* Searching: Search for other registered students by name
 * Personal Profile: With data scraped from 3rd-party sites, users can view your information such as in-game statistics, contact information, and play-time availability.
 
 Testing:
-Testing is conducted by utilizing the built in rails resouces such as the auto generated message on websites and console. In addition, tests are performed by using the website interface. The built in test in Rails is utilized to some extent. 
+Testing is conducted by utilizing the built in rails resouces such as the auto generated message on websites and console. In addition, tests are performed by using the website interface. The built in test in Rails is utilized to some extent.
 
 ## Roles
 * Overall Project Manager: Alex
@@ -23,10 +23,10 @@ Testing is conducted by utilizing the built in rails resouces such as the auto g
 Please list who did what for each part of the project.
 Also list if people worked together (pair programmed) on a particular section.
 
-* Searching: Nebras
+* Searching: Nebras, Karl
 * Login System: Karl
-* User MVC: Karl, Alex, Xu
+* User MVC: Karl, Alex, Xu, Nebras
 * Web scraping for User data: Alex, Xu
 * Free time tables MVC: Xu
 * Setting up the database: Jon, Nebras, Karl
-* Layouts and CSS: Alex
+* Layouts and CSS: Alex, Karl, Nebras
