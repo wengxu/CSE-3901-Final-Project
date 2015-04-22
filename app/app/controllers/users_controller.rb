@@ -5,14 +5,30 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
-  # If there are search parameters in the search field, update the index and filter only the correct results. Otherwise display every user.
-  def index
-    if params[:search]
-        @users = User.search(params[:search]).order("created_at DESC")
 
-      else
-         @users = User.all
-    end
+  def index
+
+    #Searches between majors and players based on radio button. 
+
+    if params[:stype] == "major"
+
+      if params[:search]
+          @users = User.searchMajor(params[:search]).order("created_at DESC")
+
+        else
+           @users = User.all
+      end
+
+    elsif params[:stype] == "player"
+
+        if params[:search]
+            @users = User.searchName(params[:search]).order("created_at DESC")
+
+          else
+             @users = User.all
+        end
+
+      end
 
   end
 

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	
+
 	belongs_to :groups
 	has_many :free_times, dependent: :destroy
 	before_save {self.email = self.email.downcase}
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	validates :major, length: {minimum: 3}
 	validate :name_should_exist
 
-	# go online and check if the name exist in league of legend 
+	# go online and check if the name exist in league of legend
 	def name_should_exist
 	 agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
     searchPage = agent.get('http://www.lolking.net/')
@@ -29,9 +29,16 @@ class User < ActiveRecord::Base
    	 end
         end
 
-	def self.search(query)
+
+	#Search for users by name
+	def self.searchName(query)
 	# where(:title, query) -> This would return an exact match of the query
 	where("name like ?", "%#{query}%")
+	end
+	#Search for users by major
+	def self.searchMajor(query)
+	# where(:title, query) -> This would return an exact match of the query
+	where("major like ?", "%#{query}%")
 	end
 
 end
