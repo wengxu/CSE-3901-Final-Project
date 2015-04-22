@@ -36,7 +36,8 @@ class UsersController < ApplicationController
 	resultPage = searchBox.submit
 	resultBody = resultPage.body
 	result_doc = Nokogiri::HTML(resultBody)
-
+	
+	@lk = resultPage.uri
 	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
 	
@@ -55,18 +56,27 @@ class UsersController < ApplicationController
 	end
 
 	if @rank.length > 0
-	@pic_url= result_doc.css("div#summoner-titlebar-icon")[0]['style']
-	@pic_url.slice!(0, 24)
-	@pic_url.slice!(-2,3)
+		@pic_url= result_doc.css("div#summoner-titlebar-icon")[0]['style']
+		@pic_url.slice!(0, 24)
+		@pic_url.slice!(-2,3)
 
-	@pic_url = 'http://' + @pic_url
+		@pic_url = 'http://' + @pic_url
 
-	@wins = result_doc.css("td.lifetime_stats_val")[0].text
-	@kills = result_doc.css("td.lifetime_stats_val")[1].text
-	@assists = result_doc.css("td.lifetime_stats_val")[2].text
-	@minions = result_doc.css("td.lifetime_stats_val")[3].text
-	@jungle = result_doc.css("td.lifetime_stats_val")[4].text
-	@turrets =result_doc.css("td.lifetime_stats_val")[5].text
+		if result_doc.at_css("td.lifetime_stats_val")
+			@wins = result_doc.css("td.lifetime_stats_val")[0].text
+			@kills = result_doc.css("td.lifetime_stats_val")[1].text
+			@assists = result_doc.css("td.lifetime_stats_val")[2].text
+			@minions = result_doc.css("td.lifetime_stats_val")[3].text
+			@jungle = result_doc.css("td.lifetime_stats_val")[4].text
+			@turrets =result_doc.css("td.lifetime_stats_val")[5].text
+		else
+			@wins = "No data available"
+			@kills ="No data available"
+			@assists = "No data available"
+			@minions = "No data available"
+			@jungle = "No data available"
+			@turrets = "No data available"
+		end
 	end
 
   end
@@ -126,6 +136,29 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
+        mon =  params.values_at 'monday1', 'monday2', 'monday3'
+  mon.each {|x| @user.free_times.build(user_id: @user.id, day: 'Monday', timeSlot: x) if x}
+
+    tue = params.values_at 'tuesday1', 'tuesday2', 'tuesday3'
+  tue.each {|x| @user.free_times.build(user_id: @user.id, day: 'Tuesday', timeSlot: x) if x}
+
+    wed = params.values_at 'wednesday1', 'wednesday2', 'wednesday3'
+  wed.each {|x| @user.free_times.build(user_id: @user.id, day: 'Wednesday', timeSlot: x) if x}
+
+    thu = params.values_at 'thursday1', 'thursday2', 'thursday3'
+  thu.each {|x| @user.free_times.build(user_id: @user.id, day: 'Thursday', timeSlot: x) if x}
+
+    fri = params.values_at 'friday1', 'friday2', 'friday3'
+  fri.each {|x| @user.free_times.build(user_id: @user.id, day: 'Friday', timeSlot: x) if x}
+
+    sat = params.values_at 'saturday1', 'saturday2', 'saturday3'
+  sat.each {|x| @user.free_times.build(user_id: @user.id, day: 'Saturday', timeSlot: x) if x}
+
+    sun = params.values_at 'sunday1', 'sunday2', 'sunday3'
+  sun.each {|x| @user.free_times.build(user_id: @user.id, day: 'Sunday', timeSlot: x) if x}
+
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
