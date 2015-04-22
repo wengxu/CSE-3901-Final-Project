@@ -2,16 +2,23 @@ gem "mechanize"
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:search]
+        @users = User.search(params[:search]).order("created_at DESC")
+
+      else
+         @users = User.all
+    end
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+
     @user = User.find(params[:id])
     #to store the user free time info
     @schedule = Array.new(3) {Array.new(7, 0)}
@@ -20,13 +27,15 @@ class UsersController < ApplicationController
     timeFrames = ['Morning', 'Afternoon', 'Evening']
     times.each {|t|
 
-      7.times {|day| 
-	3.times{|timeFrame| 
-		@schedule[timeFrame][day] = 1 if t.day == days[day] && t.timeSlot == timeFrames[timeFrame]	
+      7.times {|day|
+	3.times{|timeFrame|
+		@schedule[timeFrame][day] = 1 if t.day == days[day] && t.timeSlot == timeFrames[timeFrame]
 	}
-      } 
+      }
 
     }
+
+    # to check if the user exist
 
     agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
     searchPage = agent.get('http://www.lolking.net/')
@@ -36,11 +45,12 @@ class UsersController < ApplicationController
 	resultPage = searchBox.submit
 	resultBody = resultPage.body
 	result_doc = Nokogiri::HTML(resultBody)
-	
+
 	@lk = resultPage.uri
 	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
-	
+# scrape info from website
+
 	if @rank.include? "Bronze"
 		@r_img = "bronze.png"
 	elsif @rank.include? "Silver"
@@ -94,6 +104,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+  	# read in user input from forms so that free time can be stored as well
     @user = User.new(user_params)
     mon =  params.values_at 'monday1', 'monday2', 'monday3'
 	mon.each {|x| @user.free_times.build(user_id: @user.id, day: 'Monday', timeSlot: x) if x}
@@ -136,7 +147,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-
+# read in user input from forms so that free time can be stored as well
         mon =  params.values_at 'monday1', 'monday2', 'monday3'
   mon.each {|x| @user.free_times.build(user_id: @user.id, day: 'Monday', timeSlot: x) if x}
 
