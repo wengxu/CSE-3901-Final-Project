@@ -4,9 +4,10 @@
 This web application is designed to allow OSU students to easily find other students who play the popular online game League of Legends.
 
 Features:
-* Groups: Registered students can join a pre-made group of other students.
-* Personal Profile: With data scraped from 3rd-party sites, users can view your information such as in-game statistics,contact information, and play-time availability.
 * Searching: Search for other registered students by name, or search for pre-made groups to join.    
+* Personal Profile: With data scraped from 3rd-party sites, users can view your information such as in-game statistics,contact information, and play-time availability.
+* Groups: Registered students can join a pre-made group of other students.
+
 
 ## Roles
 * Overall Project Manager: Alex
@@ -20,7 +21,9 @@ Also list if people worked together (pair programmed) on a particular section.
 
 * Searching: Nebras
 * Login System: Karl
-* Web scraping for data: Xu
+* User MVC: Karl, Alex, Xu
+* Web scraping for User data: Alex, Xu
+* Free time tables MVC: Xu
 * Setting up the database: Jon, Nebras, Karl
 * User/Group relationships: Jon
-* Layout and formatting of the application: Alex
+* Layouts and CSS: Alex
