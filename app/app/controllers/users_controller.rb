@@ -61,6 +61,10 @@ class UsersController < ApplicationController
 		@r_img = "plat.png"
 	elsif @rank.include? "Diamond"
 		@r_img = "diamond.png"
+	elsif @rank.include? "Master"
+		@r_img = "master.png"
+	elsif @rank.include? "Challenger"
+		@r_img = "challenger.png"
 	else
 		@r_img = "unknown.png"
 	end
