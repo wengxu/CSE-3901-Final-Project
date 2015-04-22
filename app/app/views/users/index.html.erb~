@@ -1,0 +1,35 @@
+<div id="ulist">
+  <h1>Search Results</h1>
+  <table>
+    <thead>
+      <% if !@user %>
+	<tr>No Results found</tr>
+      <% else %>
+      <tr>
+        <th>Summoner Name</th>
+        <th>Major</th>
+        <th>Campus</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+      
+	
+      <%  @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.major %></td>
+          <td><%= user.campus %></td>
+          <td><%= link_to 'View', user %></td>
+        </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Sign Up', new_user_path %>
+</div>
