@@ -8,6 +8,7 @@ Features:
 * Personal Profile: With data scraped from 3rd-party sites, users can view your information such as in-game statistics,contact information, and play-time availability.
 * Groups: Registered students can join a pre-made group of other students.
 
+testing is conducted by utilizing the built in rails resouces such as the auto generated message on websites and concole. In addition, test is performed by using the website interface. The built in test in Rails is utilized to some extent. 
 
 ## Roles
 * Overall Project Manager: Alex
