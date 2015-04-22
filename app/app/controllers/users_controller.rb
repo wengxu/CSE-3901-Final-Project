@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  # If there are search parameters in the search field, update the index and filter only the correct results. Otherwise display every user.
   def index
     if params[:search]
         @users = User.search(params[:search]).order("created_at DESC")
