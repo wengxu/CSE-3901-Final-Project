@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
     @user = User.find(params[:id])
     #to store the user free time info
     @schedule = Array.new(3) {Array.new(7, 0)}
@@ -34,6 +35,8 @@ class UsersController < ApplicationController
 
     }
 
+    # to check if the user exist
+
     agent = Mechanize.new { |agent| agent.user_agent_alias = "Windows Chrome" }
     searchPage = agent.get('http://www.lolking.net/')
 	#search for player with the user name keyword
@@ -46,6 +49,7 @@ class UsersController < ApplicationController
 	@lk = resultPage.uri
 	@rank = result_doc.xpath("//li[contains(@class, 'featured')]/div[3]/div[1]").text.strip
 
+# scrape info from website
 
 	if @rank.include? "Bronze"
 		@r_img = "bronze.png"
@@ -100,6 +104,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+  	# read in user input from forms so that free time can be stored as well
     @user = User.new(user_params)
     mon =  params.values_at 'monday1', 'monday2', 'monday3'
 	mon.each {|x| @user.free_times.build(user_id: @user.id, day: 'Monday', timeSlot: x) if x}
@@ -142,7 +147,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-
+# read in user input from forms so that free time can be stored as well
         mon =  params.values_at 'monday1', 'monday2', 'monday3'
   mon.each {|x| @user.free_times.build(user_id: @user.id, day: 'Monday', timeSlot: x) if x}
 
